@@ -35,7 +35,34 @@
                     Discuss the scope of var, let, and const
                 </div>
                 <div class="collapse-content"> 
-                  <p>hello</p>
+                  <p>Scope: Function-scoped or globally scoped.
+                    Variables declared with var are accessible throughout the function in which they are declared or in the global scope if declared outside any function.
+                    Hoisting: Variables declared with var are hoisted to the top of their containing function or the global scope.
+                    This means that the declaration is moved to the top during the compilation phase, but the initialization remains in place. Therefore, you can use a var variable before it's declared, but its value may be undefined.
+                    <br><br>
+                    let:
+                    
+                    Scope: Block-scoped, limited to the block in which they are defined (e.g., if statements, loops, or function blocks).
+                    Variables declared with let are only accessible within the block where they are defined.
+                    Hoisting: Variables declared with let are also hoisted but with a difference compared to var.
+                    They are hoisted to the top of their block (or function), but they remain in the "temporal dead zone" (TDZ) until they are actually declared.
+                    Attempting to access a let variable before its declaration results in a ReferenceError.
+                    <br><br>
+                    const:
+                    
+                    Scope: Block-scoped, just like let.
+                    Variables declared with const are also accessible only within the block where they are defined.
+                    Hoisting: Variables declared with const are hoisted in a manner similar to let.
+                    They are hoisted to the top of their block but remain in the "temporal dead zone" (TDZ) until declared.
+                    Like let, accessing a const variable before its declaration results in a ReferenceError.
+                    Additional Behavior: Once a const variable is declared and assigned a value, that value cannot be changed. However, if the const variable holds an object or array, the properties or elements of that object or array can still be modified.
+                    In summary, var has function or global scope, let and const have block scope. Both let and const have the concept of the "temporal dead zone" (TDZ), which prevents variable access before declaration. const goes a step further by not allowing the reassignment of its value after initialization, although it still permits modification of properties or elements within objects or arrays it references. Understanding these scope and hoisting rules is crucial for writing reliable JavaScript code.
+                    
+                    
+                    
+                    
+                    
+                    </p>
                 </div>
               </div>
               <div class="collapse collapse-plus bg-base-200 mb-6">
@@ -44,7 +71,47 @@
                     Tell us the use cases of null and undefined
                 </div>
                 <div class="collapse-content"> 
-                  <p>hello</p>
+                  <p>null:
+
+                    null is a value that represents the intentional absence of any object value or the lack of a value. It is often used to indicate that a variable or property should not reference any object or have a value.
+                    Use cases of null include:
+                    Explicitly clearing the value of a variable or object property when it is no longer needed.
+                    Checking if a variable or property has been intentionally set to "nothing."
+                    Differentiating between an empty state and an uninitialized state.
+                    <br><br>
+    <pre>
+    Example:
+    
+    javascript
+    Copy code
+    let myVariable = null;
+    let person = { name: null, age: null };
+    </pre>
+                    <br><br>
+                    undefined:
+                    
+                    undefined is a value that indicates that a variable or property has not been assigned a value or has not been defined yet. It is often used to represent the absence of a value due to oversight or an uninitialized state.
+                    Use cases of undefined include:
+                    Variables or properties that haven't been assigned any value.
+                    Function parameters that are not provided with a value.
+                    When accessing an object property that doesn't exist.
+                    <br><br>
+    <pre>
+        Example:
+    
+    javascript
+    Copy code
+    let x; // x is undefined
+    function greet(name) {
+        console.log(`Hello, ${name}!`);
+    }
+    greet(); // name is undefined
+    let person = {};
+    console.log(person.address); // address is undefined
+    </pre>        
+                    
+                    <br><br>
+                    In summary, null is typically used to represent the intentional absence of a value, while undefined is used to represent an uninitialized or absent value that may not have been set intentionally. Understanding the distinction between these two values is important for writing robust JavaScript code.</p>
                 </div>
               </div>
               <div class="collapse collapse-plus bg-base-200">
@@ -53,7 +120,7 @@
                     What do you mean by REST API?
                 </div>
                 <div class="collapse-content"> 
-                  <p>hello</p>
+                  <p>A REST API is a way for different software applications to talk to each other over the internet. It follows a set of rules that make it easy to understand and use. Imagine it like a menu in a restaurant: you request items (resources) using standard actions (like ordering), and you get data back in a format you can understand (like receiving your meal). It's a simple and efficient way for programs to communicate and share information online.</p>
                 </div>
               </div>
         </section>

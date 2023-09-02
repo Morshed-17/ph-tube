@@ -7,6 +7,7 @@
     <title>PH tube</title>
     <!-- daisyUi link and tailwind links -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="./images/fi_3039386.svg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +33,7 @@
         <nav
             class="grid grid-cols-3  items-center pt-12 pb-8 border-b-2 border-[#25252533] mb-8 gap-3">
             <img class=" flex justify-start justify-self-start" src="./images/Logo.png" alt="">
-            <div class="w-[10.938rem] flex justify-center md:justify-self-center"><button
+            <div onclick="handleIsSort()" id="sort-btn" class="w-[10.938rem] flex justify-center md:justify-self-center"><button
                     class=" text-lg font-medium bg-[#25252533]  py-3 hover:bg-[#FF1F3D] hover:text-white  duration-300  px-5 rounded-[4px]">Sort by
                     View</button></div>
             <div class="w-[10.938rem] flex justify-end justify-self-end"><button onclick="visitBlog()"
@@ -58,6 +59,7 @@
     </main>
 
     <!-- scripts -->
+
     <script src="js/index.js"></script>
 </body>
 

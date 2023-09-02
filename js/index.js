@@ -1,3 +1,4 @@
+let newArray = []
 const loadContents = async () => {
   const response = await fetch(
     "https://openapi.programming-hero.com/api/videos/categories"
@@ -23,20 +24,19 @@ const handleDisplayCategory = async (id) => {
   );
   const data = await response.json();
   const cards = data.data;
-  displayCards(cards);
-  
+  newArray = cards
+  displayCards(newArray);
 };
-const displayCards = (cards) => {
 
-  
+const displayCards = (cards) => {
   const cardsContainer = document.getElementById("cards-container");
   cardsContainer.innerHTML = "";
-  const noDataContainer = document.getElementById('no-data-contianer')
-  noDataContainer.innerHTML =''
-  if(cards.length === 0){
+  const noDataContainer = document.getElementById("no-data-contianer");
+  noDataContainer.innerHTML = "";
 
-    const div = document.createElement('div')
-    div.innerHTML =`
+  if (cards.length === 0) {
+    const div = document.createElement("div");
+    div.innerHTML = `
     <div class='flex justify-center py-24'>
     <div class='max-w-[435px]'>
     <img class="mx-auto" src="../images/Icon.png">
@@ -44,17 +44,20 @@ const displayCards = (cards) => {
     </div>
     </div>
     `;
-    noDataContainer.appendChild(div)
+    noDataContainer.appendChild(div);
   }
 
   cards.forEach((card) => {
-    console.log(card);
-    const div = document.createElement("div")
-    timeConverter(card.others.posted_date)
+    const div = document.createElement("div");
+    timeConverter(card.others.posted_date);
     div.innerHTML = `
         <div class="">
-                    <figure class='relative'><img class="rounded-lg h-[240px] w-full" src="${card.thumbnail}" alt="Shoes" />
-                        <div id="post-date-container" class='text-white bg-black p-1 ${card.others.posted_date? '' : 'hidden'} rounded-md w-fit absolute z-10 bottom-5 right-4'>${hoursCount}hrs ${minutesCount}min</div>
+                    <figure class='relative'><img class="rounded-lg h-[240px] w-full" src="${
+                      card.thumbnail
+                    }" alt="Shoes" />
+                        <div id="post-date-container" class='text-white bg-black p-1 ${
+                          card.others.posted_date ? "" : "hidden"
+                        } rounded-md w-fit absolute z-10 bottom-5 right-4'>${hoursCount}hrs ${minutesCount}min</div>
                     </figure>
                     <div class="px-0">
                         <div class="flex gap-4 items-start pt-4">
@@ -65,12 +68,22 @@ const displayCards = (cards) => {
                         </div>
                             <div>
 
-                                <h3 class="text-xl pr-5 font-bold mt-1 text-[#171717] leading-6">${card.title}</h3>
+                                <h3 class="text-xl pr-5 font-bold mt-1 text-[#171717] leading-6">${
+                                  card.title
+                                }</h3>
                             <div id='name-varification' class="flex gap-3">
-                                <h3 class="text-lg">${card.authors[0].profile_name}</h3>
-                                <img src='${card.authors[0].verified? './images/fi_10629607.svg' : ''}'>
+                                <h3 class="text-lg">${
+                                  card.authors[0].profile_name
+                                }</h3>
+                                <img src='${
+                                  card.authors[0].verified
+                                    ? "./images/fi_10629607.svg"
+                                    : ""
+                                }'>
                             </div>
-                                <h3 class="text-lg">${card.others.views} views</h3>
+                                <h3 class="text-lg">${
+                                  card.others.views
+                                } views</h3>
                             </div>
                         </div>
     
@@ -84,27 +97,32 @@ const displayCards = (cards) => {
   });
 };
 
-let hoursCount = 0
-let minutesCount= 0
+let hoursCount = 0;
+let minutesCount = 0;
 const timeConverter = (totalSeconds) => {
-    
-    const totalMinutes = Math.floor(totalSeconds / 60)
-   const hours = Math.floor(totalMinutes / 60)
-   const minutes = totalMinutes % 60
-   hoursCount = hours
-   minutesCount = minutes
-
-
-
-}
-
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  hoursCount = hours;
+  minutesCount = minutes;
+};
 
 handleDisplayCategory("1000");
 
 loadContents();
 
 
+const handleIsSort = () => {
+  newArray.sort(function(a,b){
+    return parseFloat(b.others.views) - parseFloat(a.others.views)
+  })
+  displayCards(newArray)
+};
+
+
 // blog page
 const visitBlog = () => {
-  window.location.href = "blog.html"
-}
+  window.location.href = "blog.html";
+};
+
+// ==========load sorted
