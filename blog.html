@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blo</title>
+     <!-- daisyUi link and tailwind links -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <style>
+         .font-family-inter {
+             font-family: 'Inter', sans-serif;
+         }
+         @media screen and (max-width:600px) {
+             html{
+                 font-size: 60%;
+             }
+         }
+     </style>
+</head>
+<body class="max-w-[1440ppx] mx-auto px-[20px] md:px-[60px] font-family-inter">
+    <header class="py-7">
+        <h1 class="text-4xl font-bold text-center">QnA Blog</h1>
+    </header>
+    
+    <main>
+        <section class="max-w-screen-sm mx-auto">
+            <div class="collapse collapse-plus bg-base-200 mb-6">
+                <input type="radio" name="my-accordion-3" checked="checked" /> 
+                <div class="collapse-title text-xl font-medium">
+                    Discuss the scope of var, let, and const
+                </div>
+                <div class="collapse-content"> 
+                  <p>hello</p>
+                </div>
+              </div>
+              <div class="collapse collapse-plus bg-base-200 mb-6">
+                <input type="radio" name="my-accordion-3" /> 
+                <div class="collapse-title text-xl font-medium">
+                    Tell us the use cases of null and undefined
+                </div>
+                <div class="collapse-content"> 
+                  <p>hello</p>
+                </div>
+              </div>
+              <div class="collapse collapse-plus bg-base-200">
+                <input type="radio" name="my-accordion-3" /> 
+                <div class="collapse-title text-xl font-medium">
+                    What do you mean by REST API?
+                </div>
+                <div class="collapse-content"> 
+                  <p>hello</p>
+                </div>
+              </div>
+        </section>
+    </main>
+
+
+    <!-- script -->
+    <script src="js/index.js"></script>
+</body>
+</html>
