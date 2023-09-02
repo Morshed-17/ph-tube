@@ -28,6 +28,7 @@ const handleDisplayCategory = async (id) => {
 };
 const displayCards = (cards) => {
 
+  
   const cardsContainer = document.getElementById("cards-container");
   cardsContainer.innerHTML = "";
   const noDataContainer = document.getElementById('no-data-contianer')
@@ -47,6 +48,7 @@ const displayCards = (cards) => {
   }
 
   cards.forEach((card) => {
+    console.log(card);
     const div = document.createElement("div")
     timeConverter(card.others.posted_date)
     div.innerHTML = `
@@ -63,8 +65,7 @@ const displayCards = (cards) => {
                         </div>
                             <div>
 
-                                <h3 class="text-xl pr-5 font-bold mt-1 text-[#171717] leading-6">Building a Winning UX Strategy
-                                Using the Kano Model</h3>
+                                <h3 class="text-xl pr-5 font-bold mt-1 text-[#171717] leading-6">${card.title}</h3>
                             <div id='name-varification' class="flex gap-3">
                                 <h3 class="text-lg">${card.authors[0].profile_name}</h3>
                                 <img src='${card.authors[0].verified? './images/fi_10629607.svg' : ''}'>
@@ -98,10 +99,10 @@ const timeConverter = (totalSeconds) => {
 }
 
 
-
 handleDisplayCategory("1000");
 
 loadContents();
+
 
 // blog page
 const visitBlog = () => {
